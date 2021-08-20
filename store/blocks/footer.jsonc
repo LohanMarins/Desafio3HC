@@ -4,6 +4,11 @@
   },
   "footer-layout.desktop": { 
     "children": [
+      "sticky-layout#fdesktop"
+    ]
+  },
+  "sticky-layout#fdesktop":{
+    "children": [
       "flex-layout.row#footer"
     ]
   },

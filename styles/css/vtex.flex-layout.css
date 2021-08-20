@@ -1,0 +1,13 @@
+.flexRowContent{
+    justify-content: space-around;
+    background-color: #212121;
+    border: none;
+    border-radius: 0;
+}
+.flexRowContent--news{
+    justify-content: space-around;
+    background-color: #303030;
+    border: none;
+    border-radius: 0;
+    padding: 50px;
+}

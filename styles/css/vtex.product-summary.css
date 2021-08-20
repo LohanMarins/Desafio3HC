@@ -1,0 +1,9 @@
+.buyButton :global(.vtex-button){
+    color: #3c3c3c;
+}
+.buyButton :hover{
+    background-color: #2f9407;
+}
+.price_installmentContainer :global(.vtex-button){
+    color: #59ff00;
+}

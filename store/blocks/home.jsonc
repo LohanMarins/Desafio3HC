@@ -1,15 +1,207 @@
 {
   "store.home": { 
     "blocks": [
-      "rich-text"
+	    "tab-layout#home",
+      "flex-layout.row#newsletter",
+      "footer-wpp"
     ]
   },
-  "rich-text": { 
-    "props": { 
-      "text": "VTEX Store Framework",
-      "textAlignment": "CENTER",
-      "textPosition": "CENTER",
-      "font": "t-heading-1"
+  "flex-layout.row#newsletter": {
+        "children": [
+          "flex-layout.col#space",
+          "flex-layout.col#newsletter",
+          "flex-layout.col#space"
+        ],
+        "props":{
+          "blockClass":"news"
+        }
+      },
+      "flex-layout.col#space": {
+
+      },
+      "flex-layout.col#newsletter": {
+        "props": {
+            "verticalAlign": "middle"
+        },
+        "children": [
+            "newsletter-form"
+        ]
+      },
+      "newsletter-form": {
+        "props": {
+          "SuccessState": "rich-text#confirmation"
+        },
+        "children": [
+          "newsletter-input-name",
+          "newsletter-input-email",
+          "newsletter-input-phone",
+          "newsletter-checkbox-confirmation",
+          "newsletter-submit"
+        ]
+      },
+      "rich-text#confirmation": {
+        "props": {
+          "text": "Inscrição realizada com sucesso. Obrigada!",
+          "blockClass": "subscriptionConfirmation",
+          "textAlignment": "CENTER",
+          "textPosition": "CENTER",
+          "textColor": "c-on-action-secondary",
+          "font": "t-heading-6"
+        }
+      },
+      "newsletter-input-email": {
+        "props": {
+          "placeholderText": "seunome@email.com"
+        }
+      },
+  "tab-layout#home": {
+    "children": [
+      "sticky-layout#home",
+      "slider-layout#home",
+      "tab-content#home"
+    ]
+  },
+  "sticky-layout#home":{
+    "children": [
+      "tab-list#home"
+    ],
+    "props":{
+      "position": "inherit"
+    }
+  },
+  "tab-list#home": {
+    "children": [
+      "tab-list.item#home1",
+      "tab-list.item#home2",
+      "tab-list.item#home3"
+      ],
+    "props":{
+      "blockClass":"tabs"
+    }
+  },
+  "tab-list.item#home1": {
+    "props": {
+      "tabId": "promocoes",
+      "label": "Promoções"
+    }
+  },
+  "tab-list.item#home2": {
+    "props": {
+      "tabId": "corinthians",
+      "label": "Corinthians"
+    }
+  },
+  "tab-list.item#home3": {
+    "props": {
+      "tabId": "palmeiras",
+      "label": "Palmeiras"
+    }
+  },
+  "tab-content#home": {
+    "children": [
+      "tab-content.item#home1",
+      "tab-content.item#home2",
+      "tab-content.item#home3"
+      ]
+  },
+  "tab-content.item#home1": {
+    "children": [
+      "list-context.product-list#promo"
+    ],
+    "props": {
+      "tabId": "promocoes"
+    }
+  },
+  "list-context.product-list#promo": {
+    "props": {
+      "category": "20/24",
+      "hideUnavailableItems": true
+    },
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout#products"]
+  },
+  "tab-content.item#home2": {
+    "children": [
+      "list-context.product-list#cori"
+    ],
+    "props": {
+      "tabId": "corinthians"
+    }
+  },
+  "list-context.product-list#cori": {
+    "props": {
+      "category": "20/22",
+      "hideUnavailableItems": true
+    },
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout#products"]
+  },
+  "tab-content.item#home3": {
+    "children": [
+      "list-context.product-list#palm"
+    ],
+    "props": {
+      "tabId": "palmeiras"
+    }
+  },
+  "list-context.product-list#palm": {
+    "props": {
+      "category": "20/23",
+      "hideUnavailableItems": true
+    },
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout#products"]
+  },
+  "slider-layout#products": {
+		"props": {
+			"itemsPerPage": {
+				"desktop": 2,
+				"tablet": 1,
+				"phone": 1
+			},
+			"infinite": true,
+			"showNavigationArrows": "false",
+			"blockClass": "products",
+			"autoplay": {
+				"timeout": 3000,
+				"stopOnHover": true
+			}
+		}
+	},
+  "product-summary.shelf#home": {
+		"children": [
+			"product-summary-name",
+			"product-summary-image",
+			"product-selling-price",
+			"add-to-cart-button"
+		],
+		"props": {
+			"blockClass": "productsshelf"
+		}
+	},
+  "slider-layout#home": {
+		"props": {
+			"itemsPerPage": {
+				"desktop": 1,
+				"tablet": 1,
+				"phone": 1
+			},
+			"infinite": true,
+			"showNavigationArrows": "desktopOnly"
+		},
+    "children": [
+      "image#brand1", 
+      "image#brand2"
+    ]
+	},
+  "image#brand1": {
+    "props":{
+      "src":"https://maratonavirtual.s3.sa-east-1.amazonaws.com/6iibxhv7jzzdn2749uhoxub2fdjf?response-content-disposition=inline%3B%20filename%3D%22BANNER-WOOD.png%22%3B%20filename%2A%3DUTF-8%27%27BANNER-WOOD.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIRHGNFPZAGTZ7SUA%2F20210820%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210820T140235Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=811d5ca0f1ccc7b6c84658236234665acf24ddb14cc81527f7f118b5348e09da"
+    }
+  },
+  "image#brand2": {
+    "props":{
+      "src":"https://maratonavirtual.s3.sa-east-1.amazonaws.com/du3k6akoks0u3xe322aypnaaal8e?response-content-disposition=inline%3B%20filename%3D%22W6S9NXIJ40I86DJI17S40123EYNM3J6CNF24M4Y04GGC9TBSXU.png%22%3B%20filename%2A%3DUTF-8%27%27W6S9NXIJ40I86DJI17S40123EYNM3J6CNF24M4Y04GGC9TBSXU.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIRHGNFPZAGTZ7SUA%2F20210819%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210819T214421Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e3f59d2e17516bac147360bd87bbc0635e75b006cf43b6122c6676210c181c10"
     }
   }
 }
